@@ -1,6 +1,6 @@
 package com.agileboot.infrastructure.cache.aop;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.infrastructure.cache.RedisUtil;
 import java.util.concurrent.Callable;
 import lombok.RequiredArgsConstructor;

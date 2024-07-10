@@ -1,9 +1,9 @@
 package com.agileboot.domain.system.notice.command;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author valarchie

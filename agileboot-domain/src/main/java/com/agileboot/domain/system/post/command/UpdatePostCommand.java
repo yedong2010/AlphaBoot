@@ -1,19 +1,25 @@
 package com.agileboot.domain.system.post.command;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+import jakarta.validation.constraints.Positive;
+import lombok.Getter;
+import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 /**
  * @author valarchie
  */
 @EqualsAndHashCode(callSuper = true)
-@Data
 public class UpdatePostCommand extends AddPostCommand {
 
-    @NotNull(message = "岗位ID不能为空")
+    @NotNull("岗位ID不能为空")
     @Positive
-    private Long postId;
+    @Setter
+    @Getter
+    public Long postId;
+
+    public UpdatePostCommand(@NotNull("显示顺序不能为空") Integer postSort) {
+        super(postSort);
+    }
 
 }

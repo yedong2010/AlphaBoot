@@ -1,8 +1,8 @@
 package com.agileboot.domain.system.menu.command;
 
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author valarchie

@@ -1,6 +1,7 @@
 package com.agileboot.common.utils.ip;
 
-import cn.hutool.core.util.StrUtil;
+
+import org.dromara.hutool.core.text.StrUtil;
 
 /**
  * IP地理位置工具类

@@ -1,6 +1,6 @@
 package com.agileboot.common.utils.jackson;
 
-import cn.hutool.core.date.DateUtil;
+import org.dromara.hutool.core.date.DateUtil;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.junit.Assert;

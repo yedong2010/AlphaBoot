@@ -1,6 +1,6 @@
 package com.agileboot.common.utils.i18n;
 
-import cn.hutool.extra.spring.SpringUtil;
+import org.dromara.hutool.extra.spring.SpringUtil;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 

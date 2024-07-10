@@ -1,6 +1,5 @@
 package com.agileboot.infrastructure.user.base;
 
-import cn.hutool.extra.servlet.ServletUtil;
 import com.agileboot.common.utils.ServletHolderUtil;
 import com.agileboot.common.utils.ip.IpRegionUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

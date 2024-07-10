@@ -1,6 +1,5 @@
 package com.agileboot.infrastructure.log;
 
-import cn.hutool.json.JSONUtil;
 import com.agileboot.common.utils.jackson.JacksonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -9,6 +8,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.dromara.hutool.json.JSONUtil;
 import org.springframework.stereotype.Component;
 
 

@@ -1,6 +1,6 @@
 package com.agileboot.common.exception;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.exception.error.ErrorCodeInterface;
 import com.agileboot.common.utils.i18n.MessageUtils;
 import java.util.HashMap;

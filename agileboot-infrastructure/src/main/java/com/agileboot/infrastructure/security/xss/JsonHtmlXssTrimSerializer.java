@@ -1,9 +1,10 @@
 package com.agileboot.infrastructure.security.xss;
 
-import cn.hutool.http.HtmlUtil;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
+import org.dromara.hutool.http.html.HtmlUtil;
+
 import java.io.IOException;
 
 /**

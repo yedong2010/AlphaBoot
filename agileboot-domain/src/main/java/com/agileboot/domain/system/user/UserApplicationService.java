@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.user;
 
-import cn.hutool.core.convert.Convert;
+import org.dromara.hutool.core.convert.Convert;
 import com.agileboot.common.core.page.PageDTO;
 import com.agileboot.domain.common.cache.CacheCenter;
 import com.agileboot.domain.common.command.BulkOperationCommand;

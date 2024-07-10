@@ -1,12 +1,13 @@
 package com.agileboot.infrastructure.annotations.ratelimit;
 
-import cn.hutool.extra.servlet.ServletUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.common.utils.ServletHolderUtil;
 import com.agileboot.infrastructure.user.AuthenticationUtils;
 import com.agileboot.infrastructure.user.app.AppLoginUser;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
 package com.agileboot.domain.system.role.model;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.convert.Convert;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.domain.system.role.db.SysRoleEntity;
@@ -9,6 +9,8 @@ import com.agileboot.domain.system.role.db.SysRoleMenuEntity;
 import com.agileboot.domain.system.role.db.SysRoleMenuService;
 import com.agileboot.domain.system.role.db.SysRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +38,7 @@ public class RoleModelFactory {
         queryWrapper.eq(SysRoleMenuEntity::getRoleId, roleId);
         List<Long> menuIds = roleMenuService.list(queryWrapper).stream().map(SysRoleMenuEntity::getMenuId)
             .collect(Collectors.toList());
-        List<Long> deptIds = StrUtil.split(byId.getDeptIdSet(), ",").stream()
+        List<Long> deptIds = Arrays.stream(byId.getDeptIdSet().split(","))
             .map(Convert::toLong).collect( Collectors.toList());
 
         RoleModel roleModel = new RoleModel(byId, roleService, roleMenuService);

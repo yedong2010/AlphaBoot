@@ -1,6 +1,6 @@
 package com.agileboot.common.utils.ip;
 
-import cn.hutool.core.text.CharSequenceUtil;
+import org.dromara.hutool.core.text.CharSequenceUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,8 +28,8 @@ public class IpRegion {
 
     public String briefLocation() {
        return String.format("%s %s",
-           CharSequenceUtil.nullToDefault(province, UNKNOWN),
-           CharSequenceUtil.nullToDefault(city, UNKNOWN)).trim();
+           CharSequenceUtil.defaultIfEmpty(province, UNKNOWN),
+           CharSequenceUtil.defaultIfEmpty(city, UNKNOWN)).trim();
     }
 
 }

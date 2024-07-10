@@ -1,6 +1,6 @@
 package com.agileboot.admin.controller.system;
 
-import cn.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.collection.ListUtil;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.dto.ResponseDTO;
 import com.agileboot.common.core.page.PageDTO;
@@ -21,8 +21,10 @@ import com.agileboot.common.enums.common.BusinessTypeEnum;
 import com.agileboot.domain.system.user.db.SearchUserDO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import java.util.Arrays;
 import java.util.List;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -87,7 +89,7 @@ public class SysUserController extends BaseController {
     @Operation(summary = "用户导入excel下载")
     @GetMapping("/excelTemplate")
     public void downloadExcelTemplate(HttpServletResponse response) {
-        CustomExcelUtil.writeToResponse(ListUtil.toList(new AddUserCommand()), AddUserCommand.class, response);
+        CustomExcelUtil.writeToResponse(List.of(new AddUserCommand()), AddUserCommand.class, response);
     }
 
     /**

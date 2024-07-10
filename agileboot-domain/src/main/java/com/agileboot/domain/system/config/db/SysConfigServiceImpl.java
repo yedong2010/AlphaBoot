@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.config.db;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

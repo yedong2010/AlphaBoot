@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.role.query;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.core.page.AbstractPageQuery;
 import com.agileboot.domain.system.role.db.SysRoleEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

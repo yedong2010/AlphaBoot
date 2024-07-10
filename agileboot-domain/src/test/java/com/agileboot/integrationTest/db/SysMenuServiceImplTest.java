@@ -1,6 +1,6 @@
 package com.agileboot.integrationTest.db;
 
-import cn.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.collection.CollUtil;
 import com.agileboot.integrationTest.IntegrationTestApplication;
 import com.agileboot.domain.system.menu.db.SysMenuEntity;
 import com.agileboot.domain.system.menu.db.SysMenuService;

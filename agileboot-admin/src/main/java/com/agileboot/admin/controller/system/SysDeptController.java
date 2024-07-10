@@ -1,6 +1,5 @@
 package com.agileboot.admin.controller.system;
 
-import cn.hutool.core.lang.tree.Tree;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.dto.ResponseDTO;
 import com.agileboot.domain.system.dept.DeptApplicationService;
@@ -13,8 +12,9 @@ import com.agileboot.common.enums.common.BusinessTypeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.dromara.hutool.core.tree.MapTree;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -67,8 +67,8 @@ public class SysDeptController extends BaseController {
      */
     @Operation(summary = "获取部门树级结构")
     @GetMapping("/depts/dropdown")
-    public ResponseDTO<List<Tree<Long>>> dropdownList() {
-        List<Tree<Long>> deptTree = deptApplicationService.getDeptTree();
+    public ResponseDTO<List<MapTree<Long>>> dropdownList() {
+        List<MapTree<Long>> deptTree = deptApplicationService.getDeptTree();
         return ResponseDTO.ok(deptTree);
     }
 

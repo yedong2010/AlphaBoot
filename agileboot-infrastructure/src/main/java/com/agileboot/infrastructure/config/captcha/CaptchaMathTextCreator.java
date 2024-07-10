@@ -1,7 +1,7 @@
 package com.agileboot.infrastructure.config.captcha;
 
-import cn.hutool.core.util.EnumUtil;
-import cn.hutool.core.util.RandomUtil;
+import org.dromara.hutool.core.util.EnumUtil;
+import org.dromara.hutool.core.util.RandomUtil;
 import com.google.code.kaptcha.text.impl.DefaultTextCreator;
 
 /**

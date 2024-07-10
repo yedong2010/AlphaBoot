@@ -1,7 +1,7 @@
 package com.agileboot.domain.system.monitor.dto;
 
-import cn.hutool.core.net.NetUtil;
-import cn.hutool.core.util.NumberUtil;
+import org.dromara.hutool.core.math.NumberUtil;
+import org.dromara.hutool.core.net.NetUtil;
 import com.agileboot.common.constant.Constants;
 import java.util.LinkedList;
 import java.util.List;
@@ -107,8 +107,8 @@ public class ServerInfo {
     private void fillSystemInfo() {
         Properties props = System.getProperties();
 
-        systemInfo.setComputerName(NetUtil.getLocalHostName());
-        systemInfo.setComputerIp(NetUtil.getLocalhost().getHostAddress());
+        systemInfo.setComputerName(NetUtil.getLocalhostStrV4());
+        systemInfo.setComputerIp(NetUtil.getLocalhostV4().getHostAddress());
         systemInfo.setOsName(props.getProperty("os.name"));
         systemInfo.setOsArch(props.getProperty("os.arch"));
         systemInfo.setUserDir(props.getProperty("user.dir"));
@@ -144,7 +144,7 @@ public class ServerInfo {
             diskInfo.setFree(convertFileSize(free));
             diskInfo.setUsed(convertFileSize(used));
             if (total != 0){
-                diskInfo.setUsage(NumberUtil.div(used * 100, total, 4));
+                diskInfo.setUsage(NumberUtil.div(used * 100, total, 4).doubleValue());
             } else {
                 //Windows下如果有光驱（可能是虚拟光驱），total为0，不能做除数
                 diskInfo.setUsage(0);

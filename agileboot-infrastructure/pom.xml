@@ -33,7 +33,7 @@
         <!-- 阿里数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
+            <artifactId>druid-spring-boot-3-starter</artifactId>
         </dependency>
 
         <!-- 验证码 -->
@@ -42,8 +42,8 @@
             <artifactId>kaptcha</artifactId>
             <exclusions>
                 <exclusion>
-                    <artifactId>javax.servlet-api</artifactId>
-                    <groupId>javax.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                    <groupId>jakarta.servlet</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -112,7 +112,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
                 </configuration>
                 <executions>
                  <!--   <execution>

@@ -1,7 +1,5 @@
 package com.agileboot.domain.system.dept;
 
-import cn.hutool.core.lang.tree.Tree;
-import cn.hutool.core.lang.tree.TreeUtil;
 import com.agileboot.domain.system.dept.command.AddDeptCommand;
 import com.agileboot.domain.system.dept.command.UpdateDeptCommand;
 import com.agileboot.domain.system.dept.dto.DeptDTO;
@@ -14,6 +12,9 @@ import com.agileboot.domain.system.role.db.SysRoleService;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.dromara.hutool.core.tree.MapTree;
+import org.dromara.hutool.core.tree.TreeNode;
+import org.dromara.hutool.core.tree.TreeUtil;
 import org.springframework.stereotype.Service;
 
 /**
@@ -41,7 +42,7 @@ public class DeptApplicationService {
         return new DeptDTO(byId);
     }
 
-    public List<Tree<Long>> getDeptTree() {
+    public List<MapTree<Long>> getDeptTree() {
         List<SysDeptEntity> list = deptService.list();
 
         return TreeUtil.build(list, 0L, (dept, tree) -> {

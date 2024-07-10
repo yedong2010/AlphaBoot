@@ -1,12 +1,13 @@
 package com.agileboot.common.utils.file;
 
-import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.io.file.FileNameUtil;
-import cn.hutool.core.util.CharsetUtil;
-import cn.hutool.core.util.IdUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.core.util.URLUtil;
+import org.dromara.hutool.core.data.id.IdUtil;
+import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateUtil;
+import org.dromara.hutool.core.io.file.FileNameUtil;
+import org.dromara.hutool.core.net.url.UrlEncoder;
+import org.dromara.hutool.core.net.url.UrlUtil;
+import org.dromara.hutool.core.text.StrUtil;
+import org.dromara.hutool.core.util.CharsetUtil;
 import com.agileboot.common.config.AgileBootConfig;
 import com.agileboot.common.constant.Constants;
 import com.agileboot.common.exception.ApiException;
@@ -195,7 +196,7 @@ public class FileUploadUtils {
      */
     static String generateFilename(MultipartFile file) {
         return StrUtil.format("{}_{}_{}.{}",
-            DateUtil.format(DateUtil.date(), DatePattern.PURE_DATETIME_PATTERN),
+            DateUtil.format(DateUtil.now(), DatePattern.PURE_DATETIME_PATTERN),
             FilenameUtils.getBaseName(file.getOriginalFilename()),
             IdUtil.simpleUUID(),
             getFileExtension(file));
@@ -209,7 +210,7 @@ public class FileUploadUtils {
      */
     public static HttpHeaders getDownloadHeader(String fileName) {
         String randomFileName = System.currentTimeMillis() + "_" + fileName;
-        String fileNameUrlEncoded = URLUtil.encode(randomFileName, CharsetUtil.CHARSET_UTF_8);
+        String fileNameUrlEncoded = UrlEncoder.encodeAll(randomFileName, CharsetUtil.UTF_8);
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Disposition", String.format("attachment;filename=%s", fileNameUrlEncoded));
         return headers;

@@ -1,6 +1,6 @@
 package com.agileboot.infrastructure.annotations.unrepeatable;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.infrastructure.user.AuthenticationUtils;
 import com.agileboot.infrastructure.user.app.AppLoginUser;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;

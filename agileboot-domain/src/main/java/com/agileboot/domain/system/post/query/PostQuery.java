@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.post.query;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.core.page.AbstractPageQuery;
 import com.agileboot.domain.system.post.db.SysPostEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

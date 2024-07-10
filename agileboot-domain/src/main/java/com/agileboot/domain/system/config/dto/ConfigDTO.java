@@ -1,8 +1,7 @@
 package com.agileboot.domain.system.config.dto;
 
-import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.convert.Convert;
-import cn.hutool.json.JSONUtil;
+import org.dromara.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.convert.Convert;
 import com.agileboot.common.enums.common.YesOrNoEnum;
 import com.agileboot.common.enums.BasicEnumUtil;
 import com.agileboot.domain.system.config.db.SysConfigEntity;
@@ -10,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
+import org.dromara.hutool.json.JSONUtil;
 
 /**
  * @author valarchie

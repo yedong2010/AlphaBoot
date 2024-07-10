@@ -1,7 +1,7 @@
 package com.agileboot.domain.system.role;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.core.page.PageDTO;
 import com.agileboot.domain.common.cache.CacheCenter;
 import com.agileboot.domain.system.role.command.AddRoleCommand;
@@ -24,6 +24,8 @@ import com.agileboot.domain.system.role.db.SysRoleService;
 import com.agileboot.domain.system.user.db.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -56,8 +58,8 @@ public class RoleApplicationService {
     public RoleDTO getRoleInfo(Long roleId) {
         SysRoleEntity byId = roleService.getById(roleId);
         RoleDTO roleDTO = new RoleDTO(byId);
-        List<Long> selectedDeptList = StrUtil.split(byId.getDeptIdSet(), ",")
-            .stream().filter(StrUtil::isNotEmpty).map(Long::new).collect(Collectors.toList());
+        List<Long> selectedDeptList = Arrays.stream(byId.getDeptIdSet().split(","))
+            .filter(StrUtil::isNotEmpty).map(Long::parseLong).collect(Collectors.toList());
         roleDTO.setSelectedDeptList(selectedDeptList);
         roleDTO.setSelectedMenuList(menuService.getMenuIdsByRoleId(roleId));
         return roleDTO;

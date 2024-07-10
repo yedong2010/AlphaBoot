@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.menu.dto;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.utils.jackson.JacksonUtil;
 import com.agileboot.domain.system.menu.db.SysMenuEntity;
 import lombok.Data;

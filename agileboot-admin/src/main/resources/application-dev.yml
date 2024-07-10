@@ -60,7 +60,7 @@ spring:
 #                    password: 12345
 
     # redis 配置
-    redis:
+    data.redis:
         # 地址
         host: 1.94.114.81
         # 端口，默认为6379

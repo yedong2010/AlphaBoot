@@ -1,8 +1,8 @@
 package com.agileboot.domain.system.monitor.dto;
 
-import cn.hutool.core.util.NumberUtil;
 import com.agileboot.common.constant.Constants;
 import lombok.Data;
+import org.dromara.hutool.core.math.NumberUtil;
 
 /**
  * 內存相关信息
@@ -28,18 +28,18 @@ public class MemoryInfo {
     private double free;
 
     public double getTotal() {
-        return NumberUtil.div(total, Constants.GB, 2);
+        return NumberUtil.div(total, Constants.GB, 2).doubleValue();
     }
 
     public double getUsed() {
-        return NumberUtil.div(used, Constants.GB, 2);
+        return NumberUtil.div(used, Constants.GB, 2).doubleValue();
     }
 
     public double getFree() {
-        return NumberUtil.div(free, Constants.GB, 2);
+        return NumberUtil.div(free, Constants.GB, 2).doubleValue();
     }
 
     public double getUsage() {
-        return NumberUtil.div(used * 100, total, 2);
+        return NumberUtil.div(used * 100, total, 2).doubleValue();
     }
 }

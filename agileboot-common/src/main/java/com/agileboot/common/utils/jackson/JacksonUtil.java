@@ -1,8 +1,8 @@
 package com.agileboot.common.utils.jackson;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.collection.set.SetUtil;
+import org.dromara.hutool.core.convert.Convert;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,6 +43,8 @@ import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.dromara.hutool.core.map.MapUtil;
+import org.dromara.hutool.core.text.StrUtil;
 
 /**
  * Jackson工具类 优势： 数据量高于百万的时候，速度和FastJson相差极小 API和注解支持最完善，可定制性最强
@@ -54,7 +56,7 @@ public class JacksonUtil {
 
     private static ObjectMapper mapper;
 
-    private static final Set<JsonReadFeature> JSON_READ_FEATURES_ENABLED = CollUtil.newHashSet(
+    private static final Set<JsonReadFeature> JSON_READ_FEATURES_ENABLED = SetUtil.of(
         //允许在JSON中使用Java注释
         JsonReadFeature.ALLOW_JAVA_COMMENTS,
         //允许 json 存在没用双引号括起来的 field
@@ -481,7 +483,7 @@ public class JacksonUtil {
             } else {
                 if (jsonNode.isTextual()) {
                     String textValue = jsonNode.textValue();
-                    return Convert.toBool(textValue);
+                    return Convert.toBoolean(textValue);
                 } else {//number
                     return BooleanUtils.toBoolean(jsonNode.intValue());
                 }

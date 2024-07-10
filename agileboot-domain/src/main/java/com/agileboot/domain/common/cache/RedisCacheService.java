@@ -1,6 +1,5 @@
 package com.agileboot.domain.common.cache;
 
-import cn.hutool.extra.spring.SpringUtil;
 import com.agileboot.infrastructure.cache.RedisUtil;
 import com.agileboot.infrastructure.cache.redis.CacheKeyEnum;
 import com.agileboot.infrastructure.cache.redis.RedisCacheTemplate;
@@ -12,8 +11,10 @@ import com.agileboot.domain.system.post.db.SysPostService;
 import com.agileboot.domain.system.role.db.SysRoleService;
 import com.agileboot.domain.system.user.db.SysUserService;
 import java.io.Serializable;
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.dromara.hutool.extra.spring.SpringUtil;
 import org.springframework.stereotype.Component;
 
 /**

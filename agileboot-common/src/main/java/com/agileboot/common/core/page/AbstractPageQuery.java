@@ -1,8 +1,8 @@
 package com.agileboot.common.core.page;
 
-import cn.hutool.core.util.ObjectUtil;
+import jakarta.validation.constraints.Max;
+import org.dromara.hutool.core.util.ObjUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import javax.validation.constraints.Max;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -36,8 +36,8 @@ public abstract class AbstractPageQuery<T> extends AbstractQuery<T> {
     protected Integer pageSize;
 
     public Page<T> toPage() {
-        pageNum = ObjectUtil.defaultIfNull(pageNum, DEFAULT_PAGE_NUM);
-        pageSize = ObjectUtil.defaultIfNull(pageSize, DEFAULT_PAGE_SIZE);
+        pageNum = ObjUtil.defaultIfNull(pageNum, DEFAULT_PAGE_NUM);
+        pageSize = ObjUtil.defaultIfNull(pageSize, DEFAULT_PAGE_SIZE);
         return new Page<>(pageNum, pageSize);
     }
 

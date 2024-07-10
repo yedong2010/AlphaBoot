@@ -1,6 +1,6 @@
 package com.agileboot.admin.customize.service.permission.model.checker;
 
-import cn.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.collection.CollUtil;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
 import com.agileboot.admin.customize.service.permission.model.AbstractDataPermissionChecker;
 import com.agileboot.admin.customize.service.permission.model.DataCondition;

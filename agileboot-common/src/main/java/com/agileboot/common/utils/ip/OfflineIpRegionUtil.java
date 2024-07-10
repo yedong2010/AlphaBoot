@@ -1,8 +1,8 @@
 package com.agileboot.common.utils.ip;
 
-import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.dromara.hutool.core.text.StrUtil;
 import org.lionsoul.ip2region.xdb.Searcher;
 
 import java.io.IOException;

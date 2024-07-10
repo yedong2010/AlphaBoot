@@ -1,8 +1,6 @@
 package com.agileboot.admin.customize.async;
 
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.extra.servlet.ServletUtil;
-import cn.hutool.extra.spring.SpringUtil;
+import org.dromara.hutool.core.date.DateUtil;
 import com.agileboot.common.utils.ServletHolderUtil;
 import com.agileboot.common.utils.ip.IpRegionUtil;
 import com.agileboot.common.enums.common.LoginStatusEnum;
@@ -12,6 +10,8 @@ import com.agileboot.domain.system.log.db.SysLoginInfoService;
 import com.agileboot.domain.system.log.db.SysOperationLogService;
 import eu.bitwalker.useragentutils.UserAgent;
 import lombok.extern.slf4j.Slf4j;
+import org.dromara.hutool.extra.spring.SpringUtil;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
 
 /**
  * 异步工厂（产生任务用）
@@ -54,7 +54,7 @@ public class AsyncTaskFactory {
             loginInfo.setBrowser(browser);
             loginInfo.setOperationSystem(os);
             loginInfo.setMsg(message);
-            loginInfo.setLoginTime(DateUtil.date());
+            loginInfo.setLoginTime(DateUtil.now());
             loginInfo.setStatus(loginStatusEnum.getValue());
             // 插入数据
             SpringUtil.getBean(SysLoginInfoService.class).save(loginInfo);

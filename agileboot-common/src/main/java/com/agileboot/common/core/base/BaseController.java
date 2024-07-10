@@ -1,7 +1,7 @@
 package com.agileboot.common.core.base;
 
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.date.DateUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import java.beans.PropertyEditorSupport;
 import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class BaseController {
         binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
-                setValue(DateUtil.parseDate(text));
+                setValue(DateUtil.parse(text));
             }
         });
     }

@@ -1,6 +1,6 @@
 package com.agileboot.domain.common.command;
 
-import cn.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.collection.CollUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import java.util.HashSet;

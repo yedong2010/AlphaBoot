@@ -1,8 +1,8 @@
 package com.agileboot.domain.common.cache;
 
-import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.ArrayUtil;
+import org.dromara.hutool.core.array.ArrayUtil;
+import org.dromara.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.map.MapUtil;
 import com.agileboot.common.enums.common.BusinessTypeEnum;
 import com.agileboot.common.enums.common.GenderEnum;
 import com.agileboot.common.enums.common.LoginStatusEnum;

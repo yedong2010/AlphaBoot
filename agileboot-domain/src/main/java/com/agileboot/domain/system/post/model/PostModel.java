@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.post.model;
 
-import cn.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.bean.BeanUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.domain.system.post.command.AddPostCommand;

@@ -1,11 +1,11 @@
 package com.agileboot.common.utils.ip;
 
-import cn.hutool.core.util.CharsetUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.HttpUtil;
+import org.dromara.hutool.core.text.StrUtil;
+import org.dromara.hutool.core.util.CharsetUtil;
 import com.agileboot.common.config.AgileBootConfig;
 import com.agileboot.common.utils.jackson.JacksonUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.dromara.hutool.http.HttpUtil;
 
 /**
  * query geography address from ip
@@ -32,7 +32,7 @@ public class OnlineIpRegionUtil {
         if (AgileBootConfig.isAddressEnabled()) {
             try {
                 String rspStr = HttpUtil.get(ADDRESS_QUERY_SITE + "?ip=" + ip + "&json=true",
-                    CharsetUtil.CHARSET_GBK);
+                    CharsetUtil.GBK);
 
                 if (StrUtil.isEmpty(rspStr)) {
                     log.error("获取地理位置异常 {}", ip);

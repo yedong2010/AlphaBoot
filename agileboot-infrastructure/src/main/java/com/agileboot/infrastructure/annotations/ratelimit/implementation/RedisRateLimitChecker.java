@@ -1,11 +1,13 @@
 package com.agileboot.infrastructure.annotations.ratelimit.implementation;
 
-import cn.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.collection.ListUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.infrastructure.annotations.ratelimit.RateLimit;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
@@ -15,11 +17,11 @@ import org.springframework.stereotype.Component;
  * @author valarchie
  */
 @Component
-@RequiredArgsConstructor
 @Slf4j
 public class RedisRateLimitChecker extends AbstractRateLimitChecker{
 
-    private final RedisTemplate<Object, Object> redisTemplate;
+    @Autowired
+    private RedisTemplate<Object, Object> redisTemplate;
 
     private final RedisScript<Long> limitScript = new DefaultRedisScript<>(limitScriptText(), Long.class);
 

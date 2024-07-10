@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.user.query;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.core.page.AbstractPageQuery;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.Data;

@@ -1,8 +1,6 @@
 package com.agileboot.infrastructure.mybatisplus;
 
-import cn.hutool.core.io.resource.ResourceUtil;
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
+import org.dromara.hutool.core.io.resource.ResourceUtil;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -96,8 +94,6 @@ public class CodeGenerator {
     private void globalConfig(FastAutoGenerator generator) {
         generator.globalConfig(
             builder -> builder
-                // override old code of file
-                .fileOverride()
                 .outputDir(System.getProperty("user.dir") + module + "/src/main/java")
                 // use date type under package of java utils
                 .dateType(DateType.ONLY_DATE)
@@ -123,9 +119,8 @@ public class CodeGenerator {
             .mapper("mapper")
             .xml("mapper.xml")
             .controller("controller")
-            .other("other")
             // define dir related to OutputFileType(entity,mapper,service,controller,mapper.xml)
-            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, System.getProperty("user.dir") + module
+            .pathInfo(Collections.singletonMap(OutputFile.xml, System.getProperty("user.dir") + module
                 + "/src/main/resources/mapper/system/test"))
             .build());
     }
@@ -138,7 +133,7 @@ public class CodeGenerator {
             .service("/templates/service.java")
             .serviceImpl("/templates/serviceImpl.java")
             .mapper("/templates/mapper.java")
-            .mapperXml("/templates/mapper.xml")
+            .xml("/templates/mapper.xml")
             .controller("/templates/controller.java")
             .build());
     }

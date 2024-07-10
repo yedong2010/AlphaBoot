@@ -1,10 +1,8 @@
 package com.agileboot.admin.customize.aop.accessLog;
 
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.EnumUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.servlet.ServletUtil;
-import cn.hutool.json.JSONUtil;
+import com.agileboot.common.utils.ip.IpUtil;
+import org.dromara.hutool.core.date.DateUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.utils.ServletHolderUtil;
 import com.agileboot.infrastructure.user.AuthenticationUtils;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
@@ -14,12 +12,15 @@ import com.agileboot.common.enums.BasicEnumUtil;
 import com.agileboot.domain.system.log.db.SysOperationLogEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.dromara.hutool.core.util.EnumUtil;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
+import org.dromara.hutool.json.JSONUtil;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Map;
 
@@ -35,14 +36,14 @@ public class OperationLogModel extends SysOperationLogEntity {
 
     public void fillOperatorInfo() {
         // 获取当前的用户
-        String ip = ServletUtil.getClientIP(request);
+        String ip = IpUtil.getClientIP(request);
         setOperatorIp(ip);
         SystemLoginUser loginUser = AuthenticationUtils.getSystemLoginUser();
         if (loginUser != null) {
             this.setUsername(loginUser.getUsername());
         }
 
-        this.setOperationTime(DateUtil.date());
+        this.setOperationTime(DateUtil.now());
     }
 
 

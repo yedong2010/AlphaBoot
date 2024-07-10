@@ -1,7 +1,7 @@
 package com.agileboot.admin.customize.service.login;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.convert.Convert;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
@@ -17,6 +17,8 @@ import com.agileboot.domain.system.role.db.SysRoleService;
 import com.agileboot.domain.system.user.db.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -35,7 +37,7 @@ import org.springframework.stereotype.Service;
  * 自定义加载用户信息通过用户名
  * 用于SpringSecurity 登录流程
  * 没有办法把这个类 放进loginService中  会在SecurityConfig中造成循环依赖
- * @see com.agileboot.infrastructure.config.SecurityConfig#filterChain(HttpSecurity)
+ * // com.agileboot.infrastructure.config.SecurityConfig#filterChain(HttpSecurity)
  * @author valarchie
  */
 @Service
@@ -106,7 +108,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         Set<Long> deptIdSet = SetUtils.emptySet();
         if (StrUtil.isNotEmpty(roleEntity.getDeptIdSet())) {
-            deptIdSet = StrUtil.split(roleEntity.getDeptIdSet(), ",").stream()
+            deptIdSet = Arrays.stream(roleEntity.getDeptIdSet().split(","))
                 .map(Convert::toLong).collect(Collectors.toSet());
         }
 

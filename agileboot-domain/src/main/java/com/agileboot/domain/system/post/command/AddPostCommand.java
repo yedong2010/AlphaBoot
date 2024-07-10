@@ -1,10 +1,10 @@
 package com.agileboot.domain.system.post.command;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author valarchie
@@ -26,7 +26,7 @@ public class AddPostCommand {
     /**
      * 岗位排序
      */
-    @NotNull(message = "显示顺序不能为空")
+    @NotNull("显示顺序不能为空")
     protected Integer postSort;
 
     protected String remark;

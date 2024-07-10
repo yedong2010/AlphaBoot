@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.monitor;
 
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode.Internal;
 import com.agileboot.domain.common.cache.CacheCenter;
@@ -18,6 +18,8 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.connection.RedisServerCommands;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -27,10 +29,10 @@ import org.springframework.stereotype.Service;
  * @author valarchie
  */
 @Service
-@RequiredArgsConstructor
 public class MonitorApplicationService {
 
-    private final RedisTemplate<String, ?> redisTemplate;
+    @Autowired
+    private RedisTemplate<String, ?> redisTemplate;
 
     public RedisCacheInfoDTO getRedisCacheInfo() {
         Properties info = (Properties) redisTemplate.execute((RedisCallback<Object>) RedisServerCommands::info);

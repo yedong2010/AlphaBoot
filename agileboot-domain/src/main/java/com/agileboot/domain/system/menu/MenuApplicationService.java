@@ -1,9 +1,6 @@
 package com.agileboot.domain.system.menu;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.lang.tree.Tree;
-import cn.hutool.core.lang.tree.TreeNodeConfig;
-import cn.hutool.core.lang.tree.TreeUtil;
+import org.dromara.hutool.core.collection.CollUtil;
 import com.agileboot.domain.system.menu.command.AddMenuCommand;
 import com.agileboot.domain.system.menu.command.UpdateMenuCommand;
 import com.agileboot.domain.system.menu.dto.MenuDTO;
@@ -21,6 +18,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.dromara.hutool.core.tree.MapTree;
+import org.dromara.hutool.core.tree.TreeNodeConfig;
+import org.dromara.hutool.core.tree.TreeUtil;
 import org.springframework.stereotype.Service;
 
 /**
@@ -48,7 +48,7 @@ public class MenuApplicationService {
         return new MenuDetailDTO(byId);
     }
 
-    public List<Tree<Long>> getDropdownList(SystemLoginUser loginUser) {
+    public List<MapTree<Long>> getDropdownList(SystemLoginUser loginUser) {
         List<SysMenuEntity> menuEntityList =
             loginUser.isAdmin() ? menuService.list() : menuService.getMenuListByUserId(loginUser.getUserId());
 
@@ -100,7 +100,7 @@ public class MenuApplicationService {
      * @param menus 菜单列表
      * @return 树结构列表
      */
-    public List<Tree<Long>> buildMenuTreeSelect(List<SysMenuEntity> menus) {
+    public List<MapTree<Long>> buildMenuTreeSelect(List<SysMenuEntity> menus) {
         TreeNodeConfig config = new TreeNodeConfig();
         //默认为id可以不设置
         config.setIdKey("menuId");
@@ -113,7 +113,7 @@ public class MenuApplicationService {
     }
 
 
-    public List<Tree<Long>> buildMenuEntityTree(SystemLoginUser loginUser) {
+    public List<MapTree<Long>> buildMenuEntityTree(SystemLoginUser loginUser) {
         List<SysMenuEntity> allMenus;
         if (loginUser.isAdmin()) {
             allMenus = menuService.list();
@@ -143,14 +143,14 @@ public class MenuApplicationService {
     }
 
 
-    public List<RouterDTO> buildRouterTree(List<Tree<Long>> trees) {
+    public List<RouterDTO> buildRouterTree(List<MapTree<Long>> trees) {
         List<RouterDTO> routers = new LinkedList<>();
         if (CollUtil.isNotEmpty(trees)) {
-            for (Tree<Long> tree : trees) {
+            for (MapTree<Long> tree : trees) {
                 Object entity = tree.get("entity");
                 if (entity != null) {
                     RouterDTO routerDTO = new RouterDTO((SysMenuEntity) entity);
-                    List<Tree<Long>> children = tree.getChildren();
+                    List<MapTree<Long>> children = tree.getChildren();
                     if (CollUtil.isNotEmpty(children)) {
                         routerDTO.setChildren(buildRouterTree(children));
                     }
@@ -164,7 +164,7 @@ public class MenuApplicationService {
 
 
     public List<RouterDTO> getRouterTree(SystemLoginUser loginUser) {
-        List<Tree<Long>> trees = buildMenuEntityTree(loginUser);
+        List<MapTree<Long>> trees = buildMenuEntityTree(loginUser);
         return buildRouterTree(trees);
     }
 

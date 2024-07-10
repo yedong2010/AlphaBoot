@@ -1,6 +1,6 @@
 package com.agileboot.api.controller.common;
 
-import cn.hutool.core.map.MapUtil;
+import org.dromara.hutool.core.map.MapUtil;
 import com.agileboot.api.customize.service.JwtTokenService;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.dto.ResponseDTO;

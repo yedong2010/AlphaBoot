@@ -1,7 +1,7 @@
 package com.agileboot.domain.system.dept.model;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.convert.Convert;
+import org.dromara.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.convert.Convert;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.domain.system.dept.command.AddDeptCommand;

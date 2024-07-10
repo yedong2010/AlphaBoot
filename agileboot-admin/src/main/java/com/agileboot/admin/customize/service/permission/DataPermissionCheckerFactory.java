@@ -1,6 +1,5 @@
 package com.agileboot.admin.customize.service.permission;
 
-import cn.hutool.extra.spring.SpringUtil;
 import com.agileboot.admin.customize.service.permission.model.AbstractDataPermissionChecker;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
 import com.agileboot.admin.customize.service.permission.model.checker.AllDataPermissionChecker;
@@ -11,7 +10,8 @@ import com.agileboot.admin.customize.service.permission.model.checker.OnlySelfDa
 import com.agileboot.admin.customize.service.permission.model.checker.SingleDeptDataPermissionChecker;
 import com.agileboot.infrastructure.user.web.DataScopeEnum;
 import com.agileboot.domain.system.dept.db.SysDeptService;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+import org.dromara.hutool.extra.spring.SpringUtil;
 import org.springframework.stereotype.Component;
 
 /**

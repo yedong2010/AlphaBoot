@@ -1,8 +1,9 @@
 package com.agileboot.infrastructure.mybatisplus;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.collection.CollUtil;
+import org.dromara.hutool.core.text.StrUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class MySqlFunction {
             return false;
         }
 
-        List<String> split = StrUtil.split(setString, ",");
+        List<String> split = Arrays.asList(setString.split(","));
 
         return CollUtil.contains(split, target);
     }

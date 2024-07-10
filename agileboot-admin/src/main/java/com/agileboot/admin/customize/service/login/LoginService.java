@@ -1,15 +1,13 @@
 package com.agileboot.admin.customize.service.login;
 
-import cn.hutool.core.codec.Base64;
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.img.ImgUtil;
-import cn.hutool.core.util.CharsetUtil;
-import cn.hutool.core.util.IdUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
-import cn.hutool.crypto.asymmetric.KeyType;
-import cn.hutool.extra.servlet.ServletUtil;
+import com.agileboot.common.utils.ip.IpUtil;
+import jakarta.annotation.Resource;
+import org.dromara.hutool.core.codec.binary.Base64;
+import org.dromara.hutool.core.convert.Convert;
+import org.dromara.hutool.core.data.id.IdUtil;
+import org.dromara.hutool.core.date.DateUtil;
+import org.dromara.hutool.core.text.StrUtil;
+import org.dromara.hutool.core.util.CharsetUtil;
 import com.agileboot.common.config.AgileBootConfig;
 import com.agileboot.common.constant.Constants.Captcha;
 import com.agileboot.common.exception.ApiException;
@@ -31,9 +29,12 @@ import com.agileboot.common.enums.common.LoginStatusEnum;
 import com.agileboot.domain.system.user.db.SysUserEntity;
 import com.google.code.kaptcha.Producer;
 import java.awt.image.BufferedImage;
-import javax.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.dromara.hutool.crypto.SecureUtil;
+import org.dromara.hutool.crypto.asymmetric.KeyType;
+import org.dromara.hutool.http.server.servlet.ServletUtil;
+import org.dromara.hutool.swing.img.ImgUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -203,8 +204,8 @@ public class LoginService {
 
         SysUserEntity entity = redisCache.userCache.getObjectById(loginUser.getUserId());
 
-        entity.setLoginIp(ServletUtil.getClientIP(ServletHolderUtil.getRequest()));
-        entity.setLoginDate(DateUtil.date());
+        entity.setLoginIp(IpUtil.getClientIP(ServletHolderUtil.getRequest()));
+        entity.setLoginDate(DateUtil.now());
         entity.updateById();
     }
 
@@ -212,11 +213,11 @@ public class LoginService {
         byte[] decryptBytes = SecureUtil.rsa(AgileBootConfig.getRsaPrivateKey(), null)
             .decrypt(Base64.decode(originalPassword), KeyType.PrivateKey);
 
-        return StrUtil.str(decryptBytes, CharsetUtil.CHARSET_UTF_8);
+        return StrUtil.str(decryptBytes, CharsetUtil.UTF_8);
     }
 
     private boolean isCaptchaOn() {
-        return Convert.toBool(guavaCache.configCache.get(ConfigKeyEnum.CAPTCHA.getValue()));
+        return Convert.toBoolean(guavaCache.configCache.get(ConfigKeyEnum.CAPTCHA.getValue()));
     }
 
 }

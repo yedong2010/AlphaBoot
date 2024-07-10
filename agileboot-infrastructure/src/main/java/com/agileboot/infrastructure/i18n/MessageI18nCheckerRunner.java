@@ -1,7 +1,7 @@
 package com.agileboot.infrastructure.i18n;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.util.ArrayUtil;
+import org.dromara.hutool.core.array.ArrayUtil;
+import org.dromara.hutool.core.convert.Convert;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.common.exception.error.ErrorCodeInterface;
 import com.agileboot.common.utils.i18n.MessageUtils;
@@ -30,7 +30,7 @@ public class MessageI18nCheckerRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        if (Convert.toBool(checkI18nKey)) {
+        if (Convert.toBoolean(checkI18nKey)) {
             checkEveryMessage();
         }
     }

@@ -1,7 +1,7 @@
 package com.agileboot.infrastructure.security;
 
-import cn.hutool.crypto.SecureUtil;
-import cn.hutool.crypto.asymmetric.RSA;
+import org.dromara.hutool.crypto.SecureUtil;
+import org.dromara.hutool.crypto.asymmetric.RSA;
 
 /**
  * Rsa key生成

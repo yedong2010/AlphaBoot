@@ -1,7 +1,7 @@
 package com.agileboot.domain.system.user.model;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.config.AgileBootConfig;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;

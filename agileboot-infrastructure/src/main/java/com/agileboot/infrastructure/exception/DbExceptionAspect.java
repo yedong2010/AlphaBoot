@@ -1,6 +1,6 @@
 package com.agileboot.infrastructure.exception;
 
-import cn.hutool.core.map.MapUtil;
+import org.dromara.hutool.core.map.MapUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode.Internal;
 import java.sql.SQLException;

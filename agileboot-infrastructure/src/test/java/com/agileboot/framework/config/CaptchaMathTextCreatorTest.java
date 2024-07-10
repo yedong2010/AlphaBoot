@@ -1,8 +1,8 @@
 package com.agileboot.framework.config;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.math.Calculator;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.convert.Convert;
+import org.dromara.hutool.core.math.Calculator;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.infrastructure.config.captcha.CaptchaMathTextCreator;
 import org.junit.Assert;
 import org.junit.Test;

@@ -17,14 +17,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-        <druid.version>1.2.8</druid.version>
+        <druid.version>1.2.20</druid.version>
         <bitwalker.version>1.21</bitwalker.version>
         <swagger.version>3.0.0</swagger.version>
         <kaptcha.version>2.3.2</kaptcha.version>
-        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
-        <pagehelper.boot.version>1.4.1</pagehelper.boot.version>
+        <mybatis-spring-boot.version>3.0.3</mybatis-spring-boot.version>
+        <pagehelper.boot.version>2.1.0</pagehelper.boot.version>
         <oshi.version>6.4.0</oshi.version>
         <commons.io.version>2.11.0</commons.io.version>
         <commons.fileupload.version>1.4</commons.fileupload.version>
@@ -32,18 +32,18 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
-        <hutool.version>5.7.22</hutool.version>
-        <lombok.version>1.18.30</lombok.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
+        <hutool.version>6.0.0-M14</hutool.version>
+        <lombok.version>1.18.34</lombok.version>
+        <mybatis-plus.version>3.5.7</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
         <mockito.version>1.10.19</mockito.version>
         <it.ozimov.version>0.7.3</it.ozimov.version>
         <io.swagger.version>1.6.8</io.swagger.version>
         <org.lionsoul.version>2.6.5</org.lionsoul.version>
-        <com.google.guava.version>31.0.1-jre</com.google.guava.version>
+        <com.google.guava.version>33.2.1-jre</com.google.guava.version>
         <springdoc-openapi-ui.version>1.6.14</springdoc-openapi-ui.version>
         <mysql-connector-java>8.0.31</mysql-connector-java>
-        <spring.boot.version>2.7.10</spring.boot.version>
+        <spring.boot.version>3.3.0</spring.boot.version>
         <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.5</maven.surefire.plugin.version>
         <maven.war.plugin.version>3.1.0</maven.war.plugin.version>
@@ -65,7 +65,7 @@
             <!-- 阿里数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
+                <artifactId>druid-spring-boot-3-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
 
@@ -86,7 +86,7 @@
             <!-- mybatis plus 主依赖 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!-- mybatis plus 代码生成器依赖 -->
@@ -205,9 +205,9 @@
 
             <!-- hutool common tools-->
             <dependency>
-                <groupId>cn.hutool</groupId>
+                <groupId>org.dromara.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
+                <version>6.0.0-M14</version>
             </dependency>
 
             <dependency>
@@ -248,8 +248,8 @@
             <!-- 多数据源 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
+                <version>4.3.1</version>
             </dependency>
 
             <dependency>
@@ -264,7 +264,6 @@
                 <artifactId>swagger-annotations</artifactId>
                 <version>${io.swagger.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -280,7 +279,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.hutool</groupId>
+            <groupId>org.dromara.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
         <dependency>
@@ -294,12 +293,18 @@
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
         </dependency>
     </dependencies>
 

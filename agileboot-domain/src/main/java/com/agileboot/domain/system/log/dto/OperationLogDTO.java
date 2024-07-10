@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.log.dto;
 
-import cn.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.bean.BeanUtil;
 import com.agileboot.common.annotation.ExcelColumn;
 import com.agileboot.common.annotation.ExcelSheet;
 import com.agileboot.common.enums.common.BusinessTypeEnum;

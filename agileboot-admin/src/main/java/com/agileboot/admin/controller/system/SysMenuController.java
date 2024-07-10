@@ -1,6 +1,5 @@
 package com.agileboot.admin.controller.system;
 
-import cn.hutool.core.lang.tree.Tree;
 import com.agileboot.common.core.base.BaseController;
 import com.agileboot.common.core.dto.ResponseDTO;
 import com.agileboot.domain.system.menu.MenuApplicationService;
@@ -16,9 +15,10 @@ import com.agileboot.common.enums.common.BusinessTypeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
+import org.dromara.hutool.core.tree.MapTree;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,9 +71,9 @@ public class SysMenuController extends BaseController {
      */
     @Operation(summary = "菜单列表（树级）", description = "菜单树级下拉框")
     @GetMapping("/dropdown")
-    public ResponseDTO<List<Tree<Long>>> dropdownList() {
+    public ResponseDTO<List<MapTree<Long>>> dropdownList() {
         SystemLoginUser loginUser = AuthenticationUtils.getSystemLoginUser();
-        List<Tree<Long>> dropdownList = menuApplicationService.getDropdownList(loginUser);
+        List<MapTree<Long>> dropdownList = menuApplicationService.getDropdownList(loginUser);
         return ResponseDTO.ok(dropdownList);
     }
 

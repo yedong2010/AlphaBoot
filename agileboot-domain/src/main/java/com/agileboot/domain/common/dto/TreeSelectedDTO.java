@@ -1,9 +1,9 @@
 package com.agileboot.domain.common.dto;
 
-import cn.hutool.core.lang.tree.Tree;
 import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dromara.hutool.core.tree.MapTree;
 
 /**
  * @author valarchie
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class TreeSelectedDTO {
 
     private List<Long> checkedKeys;
-    private List<Tree<Long>> menus;
-    private List<Tree<Long>> depts;
+    private List<MapTree<Long>> menus;
+    private List<MapTree<Long>> depts;
 
 }

@@ -1,11 +1,12 @@
 package com.agileboot.admin.customize.service.permission;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.StrUtil;
+import org.dromara.hutool.core.collection.CollUtil;
 import com.agileboot.infrastructure.user.AuthenticationUtils;
 import com.agileboot.infrastructure.user.web.SystemLoginUser;
 import com.agileboot.infrastructure.user.web.RoleInfo;
 import java.util.Set;
+
+import org.dromara.hutool.core.text.StrUtil;
 import org.springframework.stereotype.Service;
 
 /**

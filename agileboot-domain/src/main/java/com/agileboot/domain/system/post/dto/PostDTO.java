@@ -1,6 +1,6 @@
 package com.agileboot.domain.system.post.dto;
 
-import cn.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.bean.BeanUtil;
 import com.agileboot.common.annotation.ExcelColumn;
 import com.agileboot.common.enums.common.StatusEnum;
 import com.agileboot.common.enums.BasicEnumUtil;

@@ -1,15 +1,16 @@
 package com.agileboot.infrastructure.annotations.unrepeatable;
 
-import cn.hutool.json.JSONUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.infrastructure.cache.RedisUtil;
 import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
+import org.dromara.hutool.json.JSONUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;

@@ -1,9 +1,8 @@
 package com.agileboot.domain.system.config.model;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
+import org.dromara.hutool.core.bean.BeanUtil;
+import org.dromara.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.text.StrUtil;
 import com.agileboot.common.exception.ApiException;
 import com.agileboot.common.exception.error.ErrorCode;
 import com.agileboot.domain.system.config.command.ConfigUpdateCommand;
@@ -14,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.dromara.hutool.json.JSONUtil;
 
 /**
  * @author valarchie
